@@ -60,7 +60,7 @@ jobs:
                   docker build -t diogomuniz/techchallenge-aplicacao-servico-producao .
                   docker login -u AWS -p $(aws ecr get-login-password --region us-east-1) 751916211357.dkr.ecr.us-east-1.amazonaws.com/techchallenge-aplicacao-servico-producao
                   docker tag diogomuniz/techchallenge-aplicacao-servico-producao:latest 751916211357.dkr.ecr.us-east-1.amazonaws.com/techchallenge-aplicacao-servico-producao
-                  docker push 751916211357.dkr.ecr.us-east-1.amazonaws.com/techchallenge-aplicacao-servico-producao
+                  docker push 751916211357.dkr.ecr.us-east-1.amazonaws.com/techchallenge-aplicacao-servico-producao:latest
 
     deploy-application:
         needs: update-image-aws-ecr
