@@ -2,12 +2,13 @@
 
 namespace Producao\External;
 
-require "config.php";
+require "./config.php";
 require "./src/Interfaces/DbConnection/DbConnectionInterface.php";
 
 use Producao\Interfaces\DbConnection\DbConnectionInterface;
 use \PDO;
 use \PDOException;
+
 class MySqlConnection implements DbConnectionInterface
 {
     public function conectar()
