@@ -48,11 +48,7 @@ class PedidoGateway implements PedidoGatewayInterface
                 "produto_categoria" => $produto["categoria"]
             ];
 
-            $cadastrarProdutoPedido = $this->repositorioDados->inserir($this->nomeTabelaPedidosProdutos, $parametros);
-            if (!$cadastrarProdutoPedido) {
-                retornarRespostaJSON("Ocorreu um erro ao salvar um item do pedido.", 500);
-                die();
-            }
+            $this->repositorioDados->inserir($this->nomeTabelaPedidosProdutos, $parametros);
         }
         return !empty($idPedido) ? (int)$idPedido : false;
     }
