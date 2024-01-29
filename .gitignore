@@ -13,5 +13,4 @@
 /out/
 /composer.lock
 /coverage
-/config.php
 /.phpunit.result.cache
