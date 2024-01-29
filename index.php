@@ -2,6 +2,8 @@
 
 // RESPONSÁVEL POR ACOMPANHAR A PRODUÇÃO/FILA DE PEDIDOS E ATUALIZAÇÃO DE STATUS.
 
+// TESTE NOVA IMAGEM
+
 header('Content-Type: application/json; charset=utf-8');
 
 require "./utils/RespostasJson.php";
