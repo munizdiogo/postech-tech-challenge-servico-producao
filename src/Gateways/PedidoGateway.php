@@ -2,7 +2,11 @@
 
 namespace Producao\Gateways;
 
-include_once("./src/Interfaces/Gateways/PedidoGatewayInterface.php");
+if (file_exists("./src/Interfaces/Gateways/PedidoGatewayInterface.php")) {
+    include_once("./src/Interfaces/Gateways/PedidoGatewayInterface.php");
+} else {
+    include_once("../Interfaces/Gateways/PedidoGatewayInterface.php");
+}
 
 use Producao\Interfaces\DbConnection\DbConnectionInterface;
 use Producao\Interfaces\Gateways\PedidoGatewayInterface;
@@ -108,7 +112,7 @@ class PedidoGateway implements PedidoGatewayInterface
         $resultado = $this->repositorioDados->atualizar($this->nomeTabelaPedidos, $id, $parametros);
         return $resultado;
     }
-  
+
     public function obterPorId($id): array
     {
         $campos = [];

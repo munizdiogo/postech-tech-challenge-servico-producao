@@ -2,7 +2,11 @@
 
 namespace Producao\Entities;
 
-require "./src/Interfaces/Entities/PedidoInterface.php";
+if (file_exists("./src/Interfaces/Entities/PedidoInterface.php")) {
+    require "./src/Interfaces/Entities/PedidoInterface.php";
+} else {
+    require "../Interfaces/Entities/PedidoInterface.php";
+}
 
 use Producao\Interfaces\Entities\PedidoInterface;
 

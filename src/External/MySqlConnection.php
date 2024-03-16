@@ -2,8 +2,12 @@
 
 namespace Producao\External;
 
-require "./config.php";
-require "./src/Interfaces/DbConnection/DbConnectionInterface.php";
+if (file_exists("./src/Interfaces/DbConnection/DbConnectionInterface.php")) {
+    require "./src/Interfaces/DbConnection/DbConnectionInterface.php";
+} else {
+    require "../Interfaces/DbConnection/DbConnectionInterface.php";
+}
+
 
 use Producao\Interfaces\DbConnection\DbConnectionInterface;
 use \PDO;
@@ -55,6 +59,19 @@ class MySqlConnection implements DbConnectionInterface
         } catch (PDOException $e) {
             return false;
         }
+    }
+
+    public function obterPorCpf($nomeTabela, $cpf)
+    {
+        $db = $this->conectar();
+        $query = "SELECT *
+                  FROM $nomeTabela
+                  WHERE  cpf = :cpf";
+        $stmt = $db->prepare($query);
+        $stmt->bindParam(':cpf', $cpf, PDO::PARAM_STR);
+        $stmt->execute();
+        $dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $dados ?? [];
     }
 
     public function atualizar(string $nomeTabela, int $id, array $parametros): bool

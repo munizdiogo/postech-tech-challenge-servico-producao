@@ -2,9 +2,15 @@
 
 namespace Producao\Controllers;
 
-require "./src/Interfaces/Controllers/PedidoControllerInterface.php";
-require "./src/UseCases/PedidoUseCases.php";
-require "./src/Gateways/PedidoGateway.php";
+if (file_exists("./src/Interfaces/Controllers/PedidoControllerInterface.php")) {
+    require "./src/Interfaces/Controllers/PedidoControllerInterface.php";
+    require "./src/UseCases/PedidoUseCases.php";
+    require "./src/Gateways/PedidoGateway.php";
+} else {
+    require "../Interfaces/Controllers/PedidoControllerInterface.php";
+    require "../UseCases/PedidoUseCases.php";
+    require "../Gateways/PedidoGateway.php";
+}
 
 use Producao\Gateways\PedidoGateway;
 use Producao\Entities\Pedido;
