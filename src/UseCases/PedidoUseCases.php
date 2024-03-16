@@ -2,8 +2,13 @@
 
 namespace Producao\UseCases;
 
-require "./src/Interfaces/UseCases/PedidoUseCasesInterface.php";
-require "./src/Entities/Pedido.php";
+if (file_exists("./src/Interfaces/UseCases/PedidoUseCasesInterface.php")) {
+    require "./src/Interfaces/UseCases/PedidoUseCasesInterface.php";
+    require "./src/Entities/Pedido.php";
+} else {
+    require "../Interfaces/UseCases/PedidoUseCasesInterface.php";
+    require "../Entities/Pedido.php";
+}
 
 use Producao\Entities\Pedido;
 use Producao\Gateways\PedidoGateway;
