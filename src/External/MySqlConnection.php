@@ -4,8 +4,10 @@ namespace Producao\External;
 
 if (file_exists("./src/Interfaces/DbConnection/DbConnectionInterface.php")) {
     require "./src/Interfaces/DbConnection/DbConnectionInterface.php";
+    require "./config.php";
 } else {
     require "../Interfaces/DbConnection/DbConnectionInterface.php";
+    require "../../config.php";
 }
 
 

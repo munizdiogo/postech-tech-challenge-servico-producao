@@ -1,8 +1,10 @@
 <?php
 if (file_exists('./vendor/autoload.php')) {
     require './vendor/autoload.php';
+    require './config.php';
 } else {
     require '../../vendor/autoload.php';
+    require '../../config.php';
 }
 
 use PHPMailer\PHPMailer\PHPMailer;
