@@ -68,7 +68,8 @@ class MySqlConnection implements DbConnectionInterface
         $db = $this->conectar($nomeTabela);
         $query = "SELECT *
                   FROM $nomeTabela
-                  WHERE  cpf = :cpf";
+                  WHERE  cpf = :cpf
+                  ORDER BY id DESC";
         $stmt = $db->prepare($query);
         $stmt->bindParam(':cpf', $cpf, PDO::PARAM_STR);
         $stmt->execute();
