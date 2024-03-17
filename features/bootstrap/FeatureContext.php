@@ -1,5 +1,6 @@
 <?php
 
+require "./config.php";
 require "./src/External/MySqlConnection.php";
 require "./src/Controllers/PedidoController.php";
 
