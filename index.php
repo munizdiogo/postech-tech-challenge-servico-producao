@@ -44,8 +44,8 @@ if (!empty($_GET["acao"])) {
             $autenticacaoController = new AutenticacaoController();
 
             $dadosCliente = $autenticacaoController->obterPorCpf($dbConnection, $cpf);
-            $destinatario = $dadosCliente[0]["email"];
-            $nome = $dadosCliente[0]["nome"];
+            $destinatario = $dadosCliente["email"];
+            $nome = $dadosCliente["nome"];
 
             switch ($status) {
                 case "pronto":
