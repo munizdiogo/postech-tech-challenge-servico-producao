@@ -2,6 +2,7 @@
 
 namespace Producao\Controllers;
 
+require "./config.php";
 require "./src/Controllers/PedidoController.php";
 require "./src/External/MySqlConnection.php";
 
