@@ -1,4 +1,5 @@
 <?php
+require '../../config.php';
 require '../../vendor/autoload.php';
 require "../External/MySqlConnection.php";
 require "../Controllers/AutenticacaoController.php";
