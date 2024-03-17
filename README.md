@@ -34,11 +34,23 @@ Após a criação da infraestrutura, funções lambda e configuração no AWS AP
 [Requisições HTTP - Exemplos](https://documenter.getpostman.com/view/14275027/2s93zCXzjp)
 
 
+## Justificativa do padrão SAGA escolhido
+
+Foi definido de usar o padrão SAGA coreografado devido ter maior facilidade e rapidez para implementação. 
+Como a equipe é pequena e o projeto não é grande, fazer de forma distribuída de modo que cada serviço não tenha alto acoplamento tornou o desenvolvimento mais prático e tivemos poucas falhas nas entregas. 
+Nós tivemos como trabalhar em cada serviço individualmente e ir avançando para o próximo conforme fosse finalizado. E quando precisamos atuar em alguma atualização ou manutenção do código, obtivemos maior eficiência.
+
+O modelo coreografado tem como vantagens a Organização Distribuída, Desacoplamento e a Tolerância a falhas.
+
 
 ## Documentação
 
+[Fluxograma - Preparação do pedido e entrega do pedido](https://miro.com/app/board/uXjVMAaDj1g=/?share_link_id=766010607812)
+
 [Fluxograma - Realização do Pedido e Pagamento](https://miro.com/app/board/uXjVMAbdRp0=/?share_link_id=567814725228)
 
-[Fluxograma - Preparação do pedido e entrega do pedido](https://miro.com/app/board/uXjVMAaDj1g=/?share_link_id=766010607812)
+[Fluxograma - Desenho da arquitetura na AWS](https://drive.google.com/file/d/1i15Mkyfl9b_9toiNlsdDFJxbn7GEup0e)
+
+[Fluxograma - Desenho do fluxo de comunicação SAGA](https://drive.google.com/file/d/1bDKpEPGBX1omtp8f4XowbuvKce51iYhY/view?usp=sharing)
 
 [Requisições HTTP - Exemplos](https://documenter.getpostman.com/view/14275027/2s93zCXzjp)
