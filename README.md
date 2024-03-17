@@ -1,6 +1,6 @@
 # Tech Challenge - Sistema de Lanchonete - Serviço: Produção
 
-Esta documentação tem o intuito de orientar sobre a configuração e utilização correta do sistema de lanchonete para o serviço: Produção, que é responsável por acompanhar a produção/fila de pedidos e atualização de status dos pedidos.
+Esta documentação tem o intuito de orientar sobre a configuração e utilização correta do sistema de lanchonete para o serviço: "Produção" que é responsável por acompanhar a produção/fila de pedidos e atualização de status dos pedidos.
 
 
 ## Infraestrutura
