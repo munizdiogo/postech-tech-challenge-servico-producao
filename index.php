@@ -4,6 +4,7 @@
 
 header('Content-Type: application/json; charset=utf-8');
 
+require "./config.php";
 require "./utils/RespostasJson.php";
 require "./utils/EnviarEmail.php";
 require "./src/Controllers/PedidoController.php";

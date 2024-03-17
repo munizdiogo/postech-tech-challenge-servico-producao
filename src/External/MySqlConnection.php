@@ -17,12 +17,14 @@ use \PDOException;
 
 class MySqlConnection implements DbConnectionInterface
 {
-    public function conectar()
+    public function conectar($nomeTabela = "pedidos")
     {
+        $dbname = $nomeTabela == "pedidos" ? DB_NAME : DB_NAME_CLIENTE;
+
         $conn = null;
 
         try {
-            $conn = new PDO("mysql:host=" . DB_HOST . ";port=" . DB_PORT . ";dbname=" . DB_NAME, DB_USERNAME, DB_PASSWORD);
+            $conn = new PDO("mysql:host=" . DB_HOST . ";port=" . DB_PORT . ";dbname=" . $dbname, DB_USERNAME, DB_PASSWORD);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             echo "Erro na conexão com o banco de dados: " . $e->getMessage();
@@ -65,7 +67,7 @@ class MySqlConnection implements DbConnectionInterface
 
     public function obterPorCpf($nomeTabela, $cpf)
     {
-        $db = $this->conectar();
+        $db = $this->conectar($nomeTabela);
         $query = "SELECT *
                   FROM $nomeTabela
                   WHERE  cpf = :cpf";
@@ -73,7 +75,7 @@ class MySqlConnection implements DbConnectionInterface
         $stmt->bindParam(':cpf', $cpf, PDO::PARAM_STR);
         $stmt->execute();
         $dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $dados ?? [];
+        return $dados[0] ?? [];
     }
 
     public function atualizar(string $nomeTabela, int $id, array $parametros): bool

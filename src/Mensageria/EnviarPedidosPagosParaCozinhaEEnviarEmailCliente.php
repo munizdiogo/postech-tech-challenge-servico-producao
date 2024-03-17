@@ -1,5 +1,4 @@
 <?php
-require "../../config.php";
 require '../../vendor/autoload.php';
 require "../External/MySqlConnection.php";
 require "../Controllers/AutenticacaoController.php";
@@ -28,10 +27,9 @@ $callback = function ($msg) use ($autenticacaoController, $pedidoController, $db
         if (!empty($dadosCliente)) {
             $atualizarStatusPedido = $pedidoController->atualizarStatusPedido($dbConnection, $dadosArray["IdPedido"], "em_preparacao");
             if ($atualizarStatusPedido) {
-                $dadosCliente = $autenticacaoController->obterPorCpf($dbConnection, $cpf);
-                if (!empty($dadosCliente[0]["email"])) {
-                    $destinatario = $dadosCliente[0]["email"];
-                    $nome = $dadosCliente[0]["nome"];
+                if (!empty($dadosCliente["email"])) {
+                    $destinatario = $dadosCliente["email"];
+                    $nome = $dadosCliente["nome"];
                     $assunto = "Pedido: " . $dadosArray["IdPedido"] . " - Em Preparacao";
                     $mensagem = "Seu pedido já está sendo preparado e em breve estará pronto.";
                     enviarEmail($destinatario, $nome, $assunto, $mensagem);
@@ -48,4 +46,3 @@ try {
 } catch (\Throwable $exception) {
     echo $exception->getMessage();
 }
- 
